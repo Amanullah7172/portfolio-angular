@@ -20,7 +20,6 @@ export class ContactComponent {
   errorMessage = '';
 
   sendEmail(contactForm: NgForm) {
-    // agar form invalid hai to return kar do
     if (contactForm.invalid) {
       this.errorMessage = '⚠️ Please fill all required fields correctly.';
       return;
@@ -38,13 +37,13 @@ export class ContactComponent {
         from_email: this.formData.email,
         message: this.formData.message
       },
-      'tCCcs2pxUswDiql1P'  // ✅ Tumhara Public Key
+      'tCCcs2pxUswDiql1P' 
     )
     .then(() => {
       this.isSending = false;
       this.successMessage = '✅ Message sent successfully!';
       this.formData = { name: '', email: '', message: '' };
-      contactForm.resetForm(); // form clear
+      contactForm.resetForm();
     }, (error) => {
       this.isSending = false;
       this.errorMessage = '❌ Failed to send message. Please try again.';
