@@ -16,13 +16,14 @@ interface Project {
 })
 export class ProjectsComponent implements OnInit {
   projects: Project[] = [
-    {
-      title: 'E-Commerce Website',
-      description: 'Angular + Bootstrap responsive shop layout',
-      image: 'assets/commerce.jfif',
-      link: 'https://example.com',
-      category: 'web'
-    },
+   {
+  title: 'School Management System',
+  description: 'Angular + Bootstrap responsive school management app with teacher, student, attendance, and course modules.',
+  image: 'assets/School Management.png', // apni image path yahan daal do
+  link: 'https://client-neon-sigma.vercel.app/',
+  category: 'web'
+}
+,
     {
       title: 'Task Manager App',
       description: 'Manage tasks effectively with Angular + LocalStorage',
@@ -31,13 +32,14 @@ export class ProjectsComponent implements OnInit {
       category: 'app'
     },
 
-    {
-      title: 'Portfolio Template',
-      description: 'Modern portfolio design built using Angular',
-      image: 'assets/student management.jfif',
-      link: 'https://example.com',
-      category: 'web'
-    }
+ {
+  title: 'Weather App',
+  description: 'Modern Weather Application built using Angular, Bootstrap and OpenWeather API with 5-day forecast feature.',
+  image: 'assets/weather.jpg',
+  link: 'https://weather-app-a13e.vercel.app/',
+  category: 'web'
+}
+
   ];
 
   filteredProjects: Project[] = [];

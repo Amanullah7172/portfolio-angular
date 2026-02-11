@@ -2,30 +2,35 @@
   <div class="container mx-auto px-4">
 
     <!-- Section Heading -->
-    <div class="text-center mb-12" data-aos="fade-up">
-      <h2 class="text-4xl font-bold text-indigo-400 mb-2">My Projects</h2>
-      <p class="text-gray-300 max-w-xl mx-auto">
-        A showcase of my recent web and app development work.
+    <div class="text-center mb-14" data-aos="fade-up">
+      <h2 class="text-4xl font-bold text-indigo-400 mb-3 tracking-wide">
+        My Projects
+      </h2>
+
+      <p class="text-gray-400 max-w-xl mx-auto">
+        A showcase of my recent Angular development projects.
       </p>
 
       <!-- Filter Buttons -->
-      <div class="flex justify-center mt-6 space-x-4">
+      <div class="flex justify-center mt-8 space-x-4 flex-wrap gap-3">
         <button
-          class="px-6 py-2 rounded-full border border-indigo-400 text-indigo-400 font-semibold hover:bg-indigo-400 hover:text-gray-900 transition-all duration-300"
+          class="px-6 py-2 rounded-full border border-indigo-400 text-indigo-400 font-semibold transition-all duration-300 hover:bg-indigo-400 hover:text-gray-900"
           [class.bg-indigo-400]="activeFilter==='all'"
           [class.text-gray-900]="activeFilter==='all'"
           (click)="filterProjects('all')">
           All
         </button>
+
         <button
-          class="px-6 py-2 rounded-full border border-indigo-400 text-indigo-400 font-semibold hover:bg-indigo-400 hover:text-gray-900 transition-all duration-300"
+          class="px-6 py-2 rounded-full border border-indigo-400 text-indigo-400 font-semibold transition-all duration-300 hover:bg-indigo-400 hover:text-gray-900"
           [class.bg-indigo-400]="activeFilter==='web'"
           [class.text-gray-900]="activeFilter==='web'"
           (click)="filterProjects('web')">
           Web
         </button>
+
         <button
-          class="px-6 py-2 rounded-full border border-indigo-400 text-indigo-400 font-semibold hover:bg-indigo-400 hover:text-gray-900 transition-all duration-300"
+          class="px-6 py-2 rounded-full border border-indigo-400 text-indigo-400 font-semibold transition-all duration-300 hover:bg-indigo-400 hover:text-gray-900"
           [class.bg-indigo-400]="activeFilter==='app'"
           [class.text-gray-900]="activeFilter==='app'"
           (click)="filterProjects('app')">
@@ -35,25 +40,39 @@
     </div>
 
     <!-- Project Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <div *ngFor="let p of filteredProjects" class="relative group" data-aos="zoom-in">
-        <!-- Card -->
-        <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl">
-          <!-- Image + Overlay -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+      <div *ngFor="let p of filteredProjects" class="group" data-aos="zoom-in">
+
+        <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 transform hover:-translate-y-3 hover:shadow-indigo-500/40">
+
+          <!-- Image -->
           <div class="relative overflow-hidden border-b-4 border-indigo-400">
-            <img [src]="p.image" alt="{{p.title}}" class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"/>
-            <div class="absolute inset-0 bg-indigo-400 bg-opacity-80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-400">
-              <a [href]="p.link" target="_blank" class="px-4 py-2 bg-gray-900 text-indigo-400 font-semibold rounded-full hover:bg-indigo-400 hover:text-gray-900 transition-all duration-300 flex items-center gap-2">
+            <img [src]="p.image"
+                 alt="{{p.title}}"
+                 class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"/>
+
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-indigo-500/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <a [href]="p.link"
+                 target="_blank"
+                 class="px-5 py-2 bg-gray-900 text-indigo-400 font-semibold rounded-full hover:bg-indigo-400 hover:text-gray-900 transition-all duration-300 flex items-center gap-2">
                 <i class="fa fa-eye"></i> View Project
               </a>
             </div>
           </div>
-          <!-- Card Body -->
-          <div class="p-4 text-center">
-            <h5 class="font-bold text-indigo-400 mb-2">{{ p.title }}</h5>
-            <p class="text-gray-300 text-sm">{{ p.description }}</p>
+
+          <!-- Content -->
+          <div class="p-5 text-center">
+            <h5 class="font-bold text-indigo-400 text-lg mb-2">
+              {{ p.title }}
+            </h5>
+            <p class="text-gray-400 text-sm">
+              {{ p.description }}
+            </p>
           </div>
+
         </div>
+
       </div>
     </div>
 
