@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { ScrollService } from '../../../shared/services/scroll.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,16 +7,22 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-@HostListener('window:scroll', [])
+  isOpen: boolean = false;
+  navbarScrolled: boolean = false;
+
+  constructor(private scrollService: ScrollService) {}
+
+  @HostListener('window:scroll', [])
   onWindowScroll() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-      navbar?.classList.add('scrolled');
-    } else {
-      navbar?.classList.remove('scrolled');
-    }
+    this.navbarScrolled = window.scrollY > 50;
   }
 
-    isOpen: boolean = false;
+  scrollToSection(sectionId: string): void {
+    this.scrollService.scrollToSection(sectionId);
+    this.isOpen = false; // Close mobile menu after clicking
+  }
 
+  scrollToTop(): void {
+    this.scrollService.scrollToTop();
+  }
 }
