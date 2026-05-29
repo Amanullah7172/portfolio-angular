@@ -1,3 +1,6 @@
+
+
+
 import { Component, HostListener } from '@angular/core';
 import { ScrollService } from '../../../shared/services/scroll.service';
 
@@ -6,11 +9,13 @@ import { ScrollService } from '../../../shared/services/scroll.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
+
 export class NavbarComponent {
+  constructor(private scrollService: ScrollService) {}
   isOpen: boolean = false;
   navbarScrolled: boolean = false;
 
-  constructor(private scrollService: ScrollService) {}
+
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
