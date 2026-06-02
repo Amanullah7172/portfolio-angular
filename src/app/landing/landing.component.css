@@ -309,6 +309,31 @@ nav.navbar-scrolled {
   section {
     padding: 1.5rem 0;
   }
+
+  .max-w-7xl,
+  .max-w-5xl,
+  .max-w-4xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  footer .flex {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  footer .flex > * {
+    width: 100%;
+  }
+
+  .animate-bounce {
+    margin-top: 1rem;
+  }
 }
 
 /* ===== LOADING ANIMATION ===== */
